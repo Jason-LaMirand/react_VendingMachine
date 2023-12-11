@@ -1,0 +1,37 @@
+import React, { Component } from "react";
+import Message from "./Message";
+
+import { Link } from "react-router-dom";
+import chipsImg from "./assets/images/chips.png";
+
+import "./Chips.css";
+
+class Chips extends Component {
+  
+
+  
+  render() {
+    const bags = this.state.bags.map((bag, i) => (
+      <img
+        key={i}
+        src={chipsImg}
+        className="bag"
+        style={{ top: `${bag.y}px`, left: `${bag.x}px` }}
+        alt="bag of lay's chips"
+      />
+    ));
+    return (
+      <div className="Chips">
+        <Message>
+          <h1>Chips</h1>
+          <h1>
+            <Link to="/">Go Back</Link>
+          </h1>
+        </Message>
+        {bags}
+      </div>
+    );
+  }
+}
+
+export default Chips;
